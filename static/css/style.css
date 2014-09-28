@@ -1,0 +1,321 @@
+@font-face {
+    font-family: 'gost_type_bstandard';
+    src: url('../fonts/gost_b_-webfont.eot');
+    src: url('../fonts/gost_b_-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/gost_b_-webfont.woff') format('woff'),
+         url('../fonts/gost_b_-webfont.ttf') format('truetype'),
+         url('../fonts/gost_b_-webfont.svg#gost_type_bstandard') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'isocpeurregular';
+    src: url('../fonts/isocpeur-webfont.eot');
+    src: url('../fonts/isocpeur-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/isocpeur-webfont.woff') format('woff'),
+         url('../fonts/isocpeur-webfont.ttf') format('truetype'),
+         url('../fonts/isocpeur-webfont.svg#isocpeurregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'eurofurence_modifiedregular';
+    src: url('../fonts/kissandtellfont_by_crazytimeswitheditor-webfont.eot');
+    src: url('../fonts/kissandtellfont_by_crazytimeswitheditor-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/kissandtellfont_by_crazytimeswitheditor-webfont.woff') format('woff'),
+         url('../fonts/kissandtellfont_by_crazytimeswitheditor-webfont.ttf') format('truetype'),
+         url('../fonts/kissandtellfont_by_crazytimeswitheditor-webfont.svg#eurofurence_modifiedregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'pt_sans_narrowregular';
+    src: url('../fonts/ptn57f-webfont.eot');
+    src: url('../fonts/ptn57f-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/ptn57f-webfont.woff') format('woff'),
+         url('../fonts/ptn57f-webfont.ttf') format('truetype'),
+         url('../fonts/ptn57f-webfont.svg#pt_sans_narrowregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'baveuseregular';
+    src: url('../fonts/baveuse-webfont.eot');
+    src: url('../fonts/baveuse-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/baveuse-webfont.woff') format('woff'),
+         url('../fonts/baveuse-webfont.ttf') format('truetype'),
+         url('../fonts/baveuse-webfont.svg#baveuseregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+.clearfix:after {
+	content: ".";
+	display: block;
+	clear: both;
+	visibility: hidden;
+	line-height: 0;
+	height: 0;
+}
+.clearfix {display: inline-block;}
+html[xmlns] .clearfix {display: block;}
+* html .clearfix {height: 1%;}
+a{color:#0BFFF5;}
+a:hover{text-decoration:none;}
+h2{font-size:18px;}
+input:focus{
+	outline:none;
+}
+html{
+    min-height: 100%;
+    height: 100%;
+    background: #2E3038;
+}
+body{
+    color:#0BFFF5;
+    font-family:'gost_type_bstandard', sans-serif;
+    min-height: 100%;
+    height: 100%;
+    font-size: 11px;
+}
+.main-rooms{
+    width: 100%;
+}
+#header{
+    font-size: 16px;
+    text-align: center;
+    text-transform: uppercase;
+    padding: 15px 0 0;
+}
+#content{
+    padding: 25px;
+}
+#footer{
+}
+#section-container{
+    position: relative;
+    min-height: 100%;
+}
+#addItemSection,
+#searshSection{
+    position: fixed;
+    top: 0;
+    height: 100%;
+    background: #00323C;
+    width: 330px;
+}
+#addItemSection{
+    left: -331px;
+    border-right: 1px solid red;
+}
+#searshSection{
+    right: -331px;
+    border-left: 1px solid red;
+}
+#addItemSection form,
+#searshSection form{
+    padding: 0 20px;
+}
+#addItemSection .ws-field,
+#searshSection .ws-field{
+    margin: 0 20px 7px 0;
+    display: inline-block;
+    vertical-align: top;
+}
+.ws-field .errorMessage{
+    width: 125px;
+}
+.errorMessage{
+    display: none;
+}
+.data-error .errorMessage{
+    display: block;
+    color: #FF9B9B;
+}
+#addItemSection .notes{
+    width: 268px;
+    max-width: 268px;
+}
+#slideAddRoomSection,
+#slideSearchRoomSection{
+    position: absolute;
+    top: 50%;
+    width: 24px;
+    height: 80px;
+    border: 1px solid red;
+    margin-top: -40px;
+    cursor: pointer;
+    background: #00323C;
+}
+#slideAddRoomSection{
+    right: -25px;
+    border-radius: 0 5px 5px 0;
+    border-left: 0;
+
+}
+#slideSearchRoomSection{
+    left: -25px;
+    border-radius: 5px 0 0 5px;
+    border-right: 0;
+}
+#slideAddRoomSection #arrow,
+#slideSearchRoomSection #arrow{
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    border-left: 8px solid #FFB800;
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent;
+    border-right: 0;
+    margin-top: -4px;
+    width: 0;
+    height: 0;
+}
+#slideAddRoomSection.arrow-left #arrow,
+#slideSearchRoomSection.arrow-left #arrow{
+     border-right: 8px solid #FFB800;
+     border-left: 0;
+}
+h3{
+    font-size: 14px;
+    text-align: center;
+    margin: 10px 0;
+}
+input[type="submit"],
+input[type="button"]{
+	padding: 0 20px;
+	background: #12A5EB;
+    border: none;
+	color: white;
+	height: 20px;
+	line-height: 20px;
+	cursor:pointer;
+    display: block;
+}
+#searshSection input[type="submit"],
+#addItemSection input[type="submit"]{
+    float: left;
+}
+input.clearForm{
+    background: #F00;
+    float: right;
+    margin: 0 20px 0 0;
+}
+input[type="text"],
+input[type="password"]{
+	padding:0 5px;
+	height: 18px;
+	line-height: 18px;
+    width: 111px;
+}
+input.value-from,
+input.value-to{
+    width: 46px;
+}
+input.value-from{
+    margin: 0 5px 0 0;
+}
+select{
+    width: 125px;
+    height: 20px;
+    line-height: 20px;
+}
+label{
+    display: block;
+    margin: 0 0 2px;
+}
+textarea{
+    width: 123px;
+    max-width: 165px;
+    min-height: 50px;
+    max-height: 150px;
+}
+.data-error input[name],
+.data-error select[name],
+.data-error textarea[name]{
+    border-color: red;
+}
+table th{
+    font-size: 12px;
+    border: 1px solid #0BFFF5;
+    padding: 5px;
+    text-align: center;
+}
+table td{
+    border: 1px solid #0BFFF5;
+    padding: 5px;
+    vertical-align: top;
+}
+th.actionButtons{
+    width: 50px;
+}
+#editPopup{
+    position: absolute;
+    top: 15px;
+    left: 50%;
+    width: 700px;
+    margin: 0 0 0 -350px;
+    display: none;
+    border-radius: 7px;
+    box-shadow: 0 0 8px -1px #FFF;
+    background: #00323C;
+    border: 1px solid #F00;
+    padding: 0 5px 20px 20px;
+}
+.close{
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    display: block;
+    width: 20px;
+    height: 20px;
+    background: #E71717;
+    color: #FFF;
+    border-radius: 0 5px;
+    font-size: 15px;
+    line-height: 20px;
+    text-align: center;
+    cursor: pointer;
+}
+#editPopup .ws-field{
+    display: inline-block;
+    margin: 0 15px 10px 0;
+    vertical-align: top;
+}
+#editPopup .notes{
+    width: 544px;
+    max-width: 100%;
+    min-height: 100px;
+}
+#saveRoom{
+    vertical-align: bottom;
+    margin-bottom: 12px;
+}
+.actionButtons{
+    text-align: center;
+}
+.actionButtons .edit,
+.actionButtons .remove{
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    text-indent: -9999px;
+    background: url(../img/sprite.png);
+    float: left
+}
+.actionButtons .edit{
+    background-position: center -149px;
+    margin: 0 5px 0 0;
+}
+.actionButtons .remove{
+    background-position: center -122px;
+}
+#loading {
+    position: absolute;
+    padding: 2px;
+    color: #ffffff;
+    opacity: 0.90;
+    width: 31px;
+    height: 31px;
+    text-align: center;
+    z-index: 100000;
+}

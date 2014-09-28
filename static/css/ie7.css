@@ -1,0 +1,11 @@
+﻿#addItemSection .ws-field,
+#searshSection .ws-field,
+#editPopup .ws-field,
+.actionButtons .edit,
+.actionButtons .remove{
+	display: inline;
+	zoom: 1;
+}
+input{
+	overflow: visible;
+}

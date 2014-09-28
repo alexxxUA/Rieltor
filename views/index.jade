@@ -1,0 +1,113 @@
+!!! 5
+html
+	head
+		link(type='text/css', rel='stylesheet', href='css/reset.css')
+		link(type="text/css", rel="stylesheet", href="css/dp/jquery-ui-1.8.24.custom.css")
+		link(type='text/css', rel='stylesheet', href='css/style.css')
+		link(type='text/css', rel='stylesheet', href='css/print.css', media="print")
+		//if IE
+			link(type='text/css', rel='stylesheet', href='css/ie.css')
+		//if IE 7
+			link(type='text/css', rel='stylesheet', href='css/ie7.css')
+		block scripts
+			script(src='js/jquery-1.8.2.min.js')
+			script(src='js/jquery_cookie.js')
+			script(src='js/jquery-ui_datepicker.js')
+			script(src='js/jquery.tablesorter.js')
+			script(src='js/placeholder.js')
+			script(src='js/js.js')
+		title Rieltor
+	body
+		-//Flour number
+		-function floorN(x, n){
+			-var numb = Number(x);
+			-return numb.toFixed(n);
+		-}
+		#section-container
+			#searshSection
+				h3 Поиск квартиры
+				form(action='/searchRoom')
+					each addAttr in addAttrs
+						if(addAttr.searchable)
+							div(class='ws-field')
+								label=addAttr.label
+								if(addAttr.searchableType == 'range')
+									input(type='#{addAttr.type}', name='#{addAttr.id}From', class='value-from', placeholder='От')
+									input(type='#{addAttr.type}', name='#{addAttr.id}To', class='value-to', placeholder='До')
+								else if(addAttr.searchableType == 'one')
+									if(addAttr.type == 'select')
+										select(name='#{addAttr.id}', class='#{addAttr.id}', placeholder='#{addAttr.label}')
+											each option in addAttr.options
+												option=option
+									else
+										input(type='#{addAttr.type}', name='#{addAttr.id}', class='#{addAttr.id}', placeholder='#{addAttr.label}')
+					div
+						input(type='submit', value='Искать', id='searchRoom')
+						input(type='button', value='Очистить форму', class='clearForm')					
+					#slideSearchRoomSection(class="arrow-left", title='Поиск квартиры')
+						#arrow
+			#addItemSection
+				h3 Добавить квартиру
+				form(action='/addRoom', data-form-validator='true')
+					each addAttr in addAttrs
+						div(class='ws-field')
+							label=addAttr.label
+							if(addAttr.type == 'text')
+								input(type='#{addAttr.type}', name='#{addAttr.id}', class='#{addAttr.id}', placeholder='#{addAttr.label}', data-validate-type='#{addAttr.dataValidate}')
+							else if(addAttr.type == 'textarea')
+								textarea(type='#{addAttr.type}', name='#{addAttr.id}', class='#{addAttr.id}', placeholder='#{addAttr.label}')
+							else if(addAttr.type == 'select')
+								select(type='#{addAttr.type}', name='#{addAttr.id}', class='#{addAttr.id}', placeholder='#{addAttr.label}', data-validate-type='#{addAttr.dataValidate}')
+									each option in addAttr.options
+										option(value='#{option}') #{option}
+							if(addAttr.dataValidateMessage)
+								div(class='errorMessage') #{addAttr.dataValidateMessage}
+					div
+						input(type='submit', value='Добавить', id='addRoom')
+						input(type='button', value='Очистить форму', class='clearForm')
+					#slideAddRoomSection(class="arrow-right", title='Добавить квартиру в базу')
+						#arrow
+			#header
+				h1
+					Рабочее место риелтора
+			#content
+				table(class="main-rooms")
+					thead
+						tr
+							each addAttr in addAttrs
+								th=addAttr.label
+							th Дата публикации
+							th(class='actionButtons') Действия
+					tbody
+						each room in rooms
+							tr(id='#{room._id}')
+								-for(var item in addAttrs)
+									td(class='#{item}')=room[item]
+								td(class='publishDate') #{room.publishDate.faoormatedDate}								
+								td(class='actionButtons')
+									span(class='edit', title='Изменить') Изменить
+									span(class='remove', title='Удалить') Удалить
+			#footer
+		#editPopup
+			form(action='/editRoom')
+				span(class='close') X
+				h3 Изменение данных квартиры
+				each addAttr in addAttrs
+					div(class='ws-field')
+						label=addAttr.label
+						if(addAttr.type == 'text')
+							input(type='#{addAttr.type}', name='#{addAttr.id}', class='#{addAttr.id}', placeholder='#{addAttr.label}', data-validate-type='#{addAttr.dataValidate}')
+						else if(addAttr.type == 'textarea')
+							textarea(type='#{addAttr.type}', name='#{addAttr.id}', class='#{addAttr.id}', placeholder='#{addAttr.label}')
+						else if(addAttr.type == 'select')
+							select(type='#{addAttr.type}', name='#{addAttr.id}', class='#{addAttr.id}', placeholder='#{addAttr.label}', data-validate-type='#{addAttr.dataValidate}')
+								each option in addAttr.options
+									option(value='#{option}') #{option}
+						if(addAttr.dataValidateMessage)
+							div(class='errorMessage') #{addAttr.dataValidateMessage}
+				input(type='hidden', name='id')
+				input(type='submit', value='Сохранить', id='saveRoom')
+
+		#modalWindow
+		#loading(style="display:none;")
+			img(src="img/ajax-loader1.gif", width="32", height="32", alt="loader")
